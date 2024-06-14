@@ -3,7 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
-	"yourprojectname/models"
+	"receipt-processor-challenge/models"
 )
 
 // HelloHandler handles the /hello endpoint
