@@ -11,11 +11,11 @@ import (
 
 func main() {
     r := mux.NewRouter()
-    r.HandleFunc("/receipts/process", handlers.ReceiptIdHandler).Methods("POST")
-    r.HandleFunc("/receipts/{id}/points", handlers.ProcessReceiptHandler).Methods("GET")
+    r.HandleFunc("/receipts/process", handlers.ProcessReceiptHandler).Methods("POST")
+    r.HandleFunc("/receipts/{id}/points", handlers.CalculatePointsHandler).Methods("GET")
 
     log.Println("Starting server on :8080")
-    if err := http.ListenAndServe(":8080", nil); err != nil {
+    if err := http.ListenAndServe(":8080", r); err != nil {
         log.Fatalf("Could not start server: %s\n", err.Error())
     }
 }
